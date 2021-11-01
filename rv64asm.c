@@ -21,7 +21,7 @@ yed_plugin_boot(yed_plugin* self)
 
     if (yed_plugin_make_ft(self, "RV64ASM") == FT_ERR_TAKEN)
     {
-        yed_cerr("lang/rust: unable to create file type name");
+        yed_cerr("lang/rv64asm: unable to create file type name");
         LOG_EXIT();
         return 1;
     }
@@ -64,7 +64,7 @@ maybe_change_ft(yed_buffer* buff)
         return;
     }
 
-    if (strcmp(ext, "s") == 0 || strcmp(ext, "S") || strcmp(ext, "asm"))
+    if (strcmp(ext, "s") == 0 || strcmp(ext, "S") == 0 || strcmp(ext, "asm") == 0)
     {
         yed_buffer_set_ft(buff, yed_get_ft("RV64ASM"));
     }
